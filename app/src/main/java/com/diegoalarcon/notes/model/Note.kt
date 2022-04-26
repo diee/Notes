@@ -1,11 +1,15 @@
 package com.diegoalarcon.notes.model
 
-import java.time.LocalDateTime
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.time.Instant
 import java.util.*
 
+@Entity
 data class Note(
+    @PrimaryKey
     val id: UUID = UUID.randomUUID(),
     val title: String,
     val description: String,
-    val entryDate: LocalDateTime = LocalDateTime.now()
+    val entryDate: Date = Date.from(Instant.now())
 )
